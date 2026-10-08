@@ -110,6 +110,15 @@ hello-python/
 │   └── README.md
 │
 └── conversations/               # 專案對話溯源儲存庫
+    ├── completed/               # 完整對話獨立記錄庫 (一對話一檔，純對話無摘要)
+    │   ├── 001_env_inspection.md
+    │   ├── 002_initial_setup_v1.md
+    │   ├── 003_date_feature_v2.md
+    │   ├── 004_pascal_triangle_v3.md
+    │   ├── 005_github_repo_push.md
+    │   ├── 006_project_restructuring_v4.md
+    │   ├── 007_project_alignment_audit.md
+    │   └── 008_export_completed_conversations.md
     ├── raw/                     # 歷次開發對話完整原始 Markdown 記錄
     │   ├── 001_env_inspection.md
     │   ├── 002_initial_setup_v1.md
@@ -117,7 +126,8 @@ hello-python/
     │   ├── 004_pascal_triangle_v3.md
     │   ├── 005_github_repo_push.md
     │   ├── 006_project_restructuring_v4.md
-    │   └── 007_project_alignment_audit.md
+    │   ├── 007_project_alignment_audit.md
+    │   └── 008_export_completed_conversations.md
     └── summaries/               # 每段對話對應的獨立摘要 Markdown 記錄
         ├── 001_env_inspection_summary.md
         ├── 002_initial_setup_v1_summary.md
@@ -125,7 +135,8 @@ hello-python/
         ├── 004_pascal_triangle_v3_summary.md
         ├── 005_github_repo_push_summary.md
         ├── 006_project_restructuring_v4_summary.md
-        └── 007_project_alignment_audit_summary.md
+        ├── 007_project_alignment_audit_summary.md
+        └── 008_export_completed_conversations_summary.md
 ```
 
 ---
@@ -137,6 +148,7 @@ hello-python/
 * **v3.0.0**：新增以系統日數（`dd`）為階數之巴斯卡三角形，並推播至遠端 GitHub。
 * **v4.0.0**：全專案重構為現代 `src-layout`，導入對話溯源庫、PEP 621 規格、單元測試與六大治理文檔。
 * **v4.1.0**：嚴格遵循 02 指引完成專案結構對齊、雙模 Makefile 工具鏈升級、提示詞手冊補齊與 100% 合規自動化審計。
+* **v4.2.0**：將專案全歷程完整對話（001~008）以一則對話一 Markdown 檔案規格完整匯出至 `conversations/completed/`。
 
 ---
 

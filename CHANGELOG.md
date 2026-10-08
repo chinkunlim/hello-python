@@ -4,6 +4,13 @@
 
 ---
 
+## [v4.2.0] - 2026-10-08
+### 完整對話獨立記錄庫匯出 (Export Completed Conversations)
+- **獨立完整對話匯出**：建立 `conversations/completed/` 目錄，將專案歷程中所有完整對話（001 至 008）以一則對話一 Markdown 檔案的形式全數匯出。
+- **純對話紀錄規範**：嚴格依使用者指示採純對話紀錄版，保留完整提問、工具調用歷程與執行輸出，不額外附帶摘要區塊。
+- **對話溯源庫同步維護**：同步歸檔 `conversations/raw/008_export_completed_conversations.md` 與對應獨立摘要。
+- **合規審計驗證**：通過 `python3 audit_project.py` 100% 合規檢核與單元測試。
+
 ## [v4.1.0] - 2026-10-08
 ### 結構對齊與合規審計 (Alignment & Compliance Audit)
 - **架構規範嚴格對齊**：遵循 `02_PROJECT_ALIGN_CHECK_GUIDE.md` 規範完成 5 大標準步驟檢驗，防範同名冗餘檔案。

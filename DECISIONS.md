@@ -12,6 +12,7 @@
 - [ADR-005: 導入 src-layout 模組化與根目錄相容啟動層](#adr-005-導入-src-layout-模組化與根目錄相容啟動層)
 - [ADR-006: 對話溯源庫 (Conversations Archive) 與 PEP 621 規範](#adr-006-對話溯源庫-conversations-archive-與-pep-621-規範)
 - [ADR-007: 專案架構對齊合規化、Makefile 雙模相容與 Audit 腳本納管](#adr-007-專案架構對齊合規化makefile-雙模相容與-audit-腳本納管)
+- [ADR-008: 專案完整對話匯出庫 (conversations/completed/) 規格制定](#adr-008-專案完整對話匯出庫-conversationscompleted-規格制定)
 
 ---
 
@@ -101,4 +102,19 @@
 * **後果**：
   - 優點：完全符合 Antigravity 02 標準合規審計指標，且在無 `uv` 環境中開箱即用。
   - 代價：Makefile 增加了條件判斷邏輯。
+
+---
+
+### ADR-008: 專案完整對話匯出庫 (conversations/completed/) 規格制定
+* **狀態**：已採納 (Accepted)
+* **日期**：2026-10-08
+* **背景**：開發者需要將專案從發起迄今的所有對話歷史完整匯出為 Markdown 格式，以利離線閱讀、外部存檔與專案歷程稽核。
+* **決策**：
+  - 建立專屬匯出目錄 `conversations/completed/`。
+  - 採「一則對話一個 Markdown 檔案」規格（`001_` 至 `008_`）。
+  - 內容採「純對話紀錄版」，完整忠實收錄使用者 Prompt、助理探測/執行過程與最終回覆輸出，不冗餘附加 Summary。
+* **後果**：
+  - 優點：提供單檔自給自足（Self-contained）的完整對話文字檔，便於直接分發與檢閱。
+  - 代價：與 raw/ 內容形成不同面向的對話視圖，需在專案文檔中清晰定義職責劃分。
+
 
