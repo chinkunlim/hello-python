@@ -11,6 +11,7 @@
 - [ADR-004: 遠端儲存庫原子化多版本推送與同步驗證機制](#adr-004-遠端儲存庫原子化多版本推送與同步驗證機制)
 - [ADR-005: 導入 src-layout 模組化與根目錄相容啟動層](#adr-005-導入-src-layout-模組化與根目錄相容啟動層)
 - [ADR-006: 對話溯源庫 (Conversations Archive) 與 PEP 621 規範](#adr-006-對話溯源庫-conversations-archive-與-pep-621-規範)
+- [ADR-007: 專案架構對齊合規化、Makefile 雙模相容與 Audit 腳本納管](#adr-007-專案架構對齊合規化makefile-雙模相容與-audit-腳本納管)
 
 ---
 
@@ -86,3 +87,18 @@
 * **後果**：
   - 優點：專案具備完整之歷史可解釋性（Explainability）與 AI 友好度（Agent-readable），環境標準化。
   - 代價：需持續維護對話歸檔與摘要檔。
+
+---
+
+### ADR-007: 專案架構對齊合規化、Makefile 雙模相容與 Audit 腳本納管
+* **狀態**：已採納 (Accepted)
+* **日期**：2026-10-08
+* **背景**：遵循 `02_PROJECT_ALIGN_CHECK_GUIDE.md` 規範，需防範同名文檔散落（如 `docs/CHANGELOG.md`）、補齊 `audit_project.py` 自動化自檢，並在不同開發環境（有無全域安裝 `uv`）中維持一致的自動化指令操作。
+* **決策**：
+  - 將標準審計腳本 `audit_project.py` 收納至根目錄，使本地與 CI 均可直行 `python3 audit_project.py`。
+  - `Makefile` 升級為雙模（Dual-mode）：優先自動探測 `uv` 指令，若環境未安裝 `uv` 則優雅回退至原生 `python3` / `pytest`。
+  - 補齊 `docs/PROMPT_TEMPLATES.md` 並擴充 `evals/README.md`。
+* **後果**：
+  - 優點：完全符合 Antigravity 02 標準合規審計指標，且在無 `uv` 環境中開箱即用。
+  - 代價：Makefile 增加了條件判斷邏輯。
+

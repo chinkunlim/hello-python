@@ -24,6 +24,16 @@
   - 或透過模組化方式啟動：`PYTHONPATH=src python3 -m hello_python.cli`。
   - 或透過 `pip install -e .` 將專案以可編輯模式安裝。
 
+### 1.3 本機未安裝 uv 套件管理員之降級相容機制
+* **現象**：執行純 `uv` 命令時回報 `command not found: uv`。
+* **原因**：開發環境尚未全域安裝現代 Python 套件管理器 `uv`。
+* **解法**：
+  - 專案 `Makefile` 已全面升級雙模相容，執行 `make test`、`make dev`、`make sync` 時會自動偵測；若未偵測到 `uv` 會自動優雅 fallback 至系統原生 `python3` / `pytest`。
+  - 若欲安裝 `uv` 獲得更快解析速度，可執行：
+    ```bash
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+    ```
+
 ---
 
 ## 2. 版本控制與遠端連線 (Git & GitHub CLI)

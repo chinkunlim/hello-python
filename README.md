@@ -54,6 +54,7 @@ make test
 - `make run`：執行主程式。
 - `make test`：執行測試套件。
 - `make check`：執行語法與結構檢查。
+- `make audit`：執行 Antigravity 專案合規自動化審計。
 - `make help`：查看所有指令說明。
 
 ---
@@ -66,8 +67,9 @@ hello-python/
 ├── pyproject.toml               # PEP 621 主要依賴聲明與專案元數據
 ├── .gitignore                   # Git 排除清單 (.venv, __pycache__ 等)
 ├── .env.example                 # 環境變數範本
-├── Makefile                     # 一鍵常用指令集 (run, test, check)
+├── Makefile                     # 一鍵常用指令集 (run, test, check, audit, sync)
 ├── LICENSE                      # MIT 開源授權條款
+├── audit_project.py             # Antigravity 專案合規性自動化審計腳本
 │
 ├── .vscode/                     # VS Code 開發環境配置
 │   ├── settings.json            # 解譯器與格式化器設定
@@ -82,7 +84,7 @@ hello-python/
 ├── README.md                    # 本專案入口文件
 ├── AGENTS.md                    # AI 代理協作規範與職責
 ├── WORKFLOW_GUIDE.md            # 標準作業程序 (SOP)
-├── CHANGELOG.md                 # 完整版本演進紀錄 (v1 ~ v4)
+├── CHANGELOG.md                 # 完整版本演進紀錄 (v1 ~ v4.1)
 ├── DECISIONS.md                 # 架構重大決策記錄 (ADR)
 ├── KNOWN_ISSUES.md              # 已知問題與踩坑指南
 │
@@ -97,11 +99,15 @@ hello-python/
 │   ├── ARCHITECTURE.md          # 系統架構圖與設計
 │   ├── TOOLS.md                 # 工具集與指令介面規範
 │   ├── CONTEXT.md               # 系統全域背景 (供 Agent 吸收)
-│   └── DEPLOYMENT.md            # 環境安裝與部署手冊
+│   ├── DEPLOYMENT.md            # 環境安裝與部署手冊
+│   └── PROMPT_TEMPLATES.md      # 提示詞範本與調教手冊
 │
 ├── tests/                       # 單元測試套件
 │   ├── __init__.py
 │   └── test_core.py             # 核心計算邏輯測試
+│
+├── evals/                       # 提示詞評估集與輸出基準
+│   └── README.md
 │
 └── conversations/               # 專案對話溯源儲存庫
     ├── raw/                     # 歷次開發對話完整原始 Markdown 記錄
@@ -110,14 +116,16 @@ hello-python/
     │   ├── 003_date_feature_v2.md
     │   ├── 004_pascal_triangle_v3.md
     │   ├── 005_github_repo_push.md
-    │   └── 006_project_restructuring_v4.md
+    │   ├── 006_project_restructuring_v4.md
+    │   └── 007_project_alignment_audit.md
     └── summaries/               # 每段對話對應的獨立摘要 Markdown 記錄
         ├── 001_env_inspection_summary.md
         ├── 002_initial_setup_v1_summary.md
         ├── 003_date_feature_v2_summary.md
         ├── 004_pascal_triangle_v3_summary.md
         ├── 005_github_repo_push_summary.md
-        └── 006_project_restructuring_v4_summary.md
+        ├── 006_project_restructuring_v4_summary.md
+        └── 007_project_alignment_audit_summary.md
 ```
 
 ---
@@ -128,6 +136,7 @@ hello-python/
 * **v2.0.0**：新增今日日期顯示，實施 `git diff` 差異檢視與白話教學。
 * **v3.0.0**：新增以系統日數（`dd`）為階數之巴斯卡三角形，並推播至遠端 GitHub。
 * **v4.0.0**：全專案重構為現代 `src-layout`，導入對話溯源庫、PEP 621 規格、單元測試與六大治理文檔。
+* **v4.1.0**：嚴格遵循 02 指引完成專案結構對齊、雙模 Makefile 工具鏈升級、提示詞手冊補齊與 100% 合規自動化審計。
 
 ---
 

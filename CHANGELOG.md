@@ -4,6 +4,14 @@
 
 ---
 
+## [v4.1.0] - 2026-10-08
+### 結構對齊與合規審計 (Alignment & Compliance Audit)
+- **架構規範嚴格對齊**：遵循 `02_PROJECT_ALIGN_CHECK_GUIDE.md` 規範完成 5 大標準步驟檢驗，防範同名冗餘檔案。
+- **審計腳本納管**：於專案根目錄納管 `audit_project.py`，支援一鍵合規性檢核（`make audit` 或 `python3 audit_project.py`）。
+- **工具鏈雙模升級**：升級 `Makefile` 涵蓋標準 target（`sync`, `test`, `dev`, `lint`, `audit`, `run`, `check`, `clean`），支援 `uv` 優先並提供原生 `python3` / `pytest` 優雅 fallback。
+- **規格文檔齊備**：補齊 `docs/PROMPT_TEMPLATES.md`，並擴充 `evals/README.md` 評估維度與基準案例。
+- **對話溯源庫補齊**：歸檔 `conversations/raw/007_project_alignment_audit.md` 及其獨立摘要。
+
 ## [v4.0.0] - 2026-10-08
 ### 重大架構升級 (Major Restructuring)
 - **架構模組化**：導入標準 `src-layout` 架構，建立 `src/hello_python/` 套件：

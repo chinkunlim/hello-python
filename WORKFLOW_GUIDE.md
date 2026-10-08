@@ -47,6 +47,8 @@ flowchart TD
   python3 hello.py
   # 或使用測試套件
   python3 -m unittest discover tests
+  # 執行專案標準合規審計
+  python3 audit_project.py
   ```
 
 ### 步驟五：版本差異（Diff）檢視與白話解讀
